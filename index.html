@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Capbreu Flipbook</title>
+
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+    </head>
+    <body>
+        <main id="main">
+            <header class="flipbook-header">
+                <div class="menu-wrapper">
+                    <button
+                        id="menu"
+                        data-target="offcanvasMenu"
+                        aria-controls="offcanvasMenu"
+                        class="page-control page-control--menu"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <title>Menú</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="zoom-wrapper">
+                    <button id="zoom" class="page-control page-control--zoom">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 icon-zoomIn"
+                        >
+                            <title>Ampliar pàgina</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
+                            />
+                        </svg>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 icon-zoomOut"
+                        >
+                            <title>Reduir pàgina</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="previous-wrapper">
+                    <button id="firstPage" class="page-control page-control--first">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <title>Primera pàgina</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                            />
+                        </svg>
+                    </button>
+
+                    <button id="previousPage" class="page-control page-control--previous">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <title>Pàgina anterior</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 19.5L8.25 12l7.5-7.5"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="page-number-wrapper">
+                    <input
+                        id="pageNumber"
+                        type="text"
+                        id="pageNumber"
+                        value=""
+                        title="Pàgina actual"
+                    />
+                </div>
+
+                <div class="next-wrapper">
+                    <button id="nextPage" class="page-control page-control--next">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <title>Pàgina següent</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                            />
+                        </svg>
+                    </button>
+
+                    <button id="lastPage" class="page-control page-control--last">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6"
+                        >
+                            <title>Última pàgina</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="fullscreen-wrapper">
+                    <button id="fullscreen" class="page-control page-control--fullscreen">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 icon-enterFullscreen"
+                        >
+                            <title>Pantalla completa</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+                            />
+                        </svg>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            role="img"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-6 h-6 icon-exitFullscreen"
+                        >
+                            <title>Sortir de pantalla completa</title>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </header>
+            <div
+                class="offcanvas"
+                id="offcanvasMenu"
+                aria-hidden="true"
+                aria-labelledby="offcanvasLabel"
+                tabindex="0"
+                role="dialog"
+            >
+                <h2 id="offcanvasLabel" class="visually-hidden">Índex de pàgines del llibre</h2>
+                <div id="flipbookThumbnails"></div>
+            </div>
+            <div class="wrapper">
+                <div id="zoomContainer" class="container">
+                    <section id="flipbook"></section>
+                </div>
+            </div>
+        </main>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
