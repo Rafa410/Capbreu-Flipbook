@@ -13,6 +13,7 @@
         showCover: true,
         autoSize: true,
         flippingTime: 1000,
+        swipeDistance: 5,
     };
 
     const buildSettings = {
